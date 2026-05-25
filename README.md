@@ -47,3 +47,74 @@ Chunk Processing
 Replica Storage (nodeA / nodeB)
    ↓
 Metadata Persistence
+
+# API Endpoints
+
+## Upload File
+
+```http
+POST /upload
+```
+
+Uploads file and starts asynchronous chunk processing.
+
+---
+
+## Recover Missing Replica
+
+```http
+GET /recover/:fileId/:chunkNumber
+```
+
+Restores deleted chunk replica from backup node.
+
+---
+
+# Setup Instructions
+
+## Clone Repository
+
+```bash
+git clone https://github.com/pruthvep/Replicafs.git
+cd Replicafs
+```
+
+---
+
+## Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+## Start Redis Container
+
+```bash
+docker compose up
+```
+
+---
+
+## Start Worker
+
+```bash
+node src/workers/fileWorker.js
+```
+
+---
+
+## Start Backend Server
+
+```bash
+node src/server.js
+```
+
+---
+
+
+
+# Author
+
+Pruthve
